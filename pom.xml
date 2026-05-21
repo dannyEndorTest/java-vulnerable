@@ -6,57 +6,32 @@
   <version>0.1.0</version>
   <packaging>war</packaging>
 
-  <!--
-    Demo consumer for two load-bearing EXPOSURE CVEs and four filter-padding CVEs.
-
-    Load-bearing pair:
-      tomcat-catalina 8.0.30        CVE-2016-0714  (HOT in this project — context.xml enables PersistentManager)
-      rave-web 0.15                 CVE-2013-1814  (COLD in this project — applicationContext-security.xml gates /api/rpc/users/** to ROLE_ADMIN)
-
-    Filter padding (plain Findings; no ExposureConditions rule registered):
-      commons-text 1.9              CVE-2022-42889  Text4Shell
-      jackson-databind 2.9.10       CVE-2019-14540
-      snakeyaml 1.30                CVE-2022-1471
-      spring-core 5.3.18            CVE-2022-22965  Spring4Shell
-  -->
-
   <dependencies>
-    <!-- Load-bearing CVE-2016-0714 (Tomcat session persistence RCE) -->
     <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-catalina</artifactId>
       <version>8.0.30</version>
     </dependency>
-
-    <!-- Load-bearing CVE-2013-1814 (Apache Rave UserApi info disclosure) -->
     <dependency>
       <groupId>org.apache.rave</groupId>
       <artifactId>rave-web</artifactId>
       <version>0.15</version>
     </dependency>
-
-    <!-- Filter-padding CVE-2022-42889 (Text4Shell) -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-text</artifactId>
       <version>1.9</version>
     </dependency>
-
-    <!-- Filter-padding CVE-2019-14540 (jackson-databind deserialization) -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>2.9.10</version>
     </dependency>
-
-    <!-- Filter-padding CVE-2022-1471 (SnakeYAML constructor deserialization) -->
     <dependency>
       <groupId>org.yaml</groupId>
       <artifactId>snakeyaml</artifactId>
       <version>1.30</version>
     </dependency>
-
-    <!-- Filter-padding CVE-2022-22965 (Spring4Shell) -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
