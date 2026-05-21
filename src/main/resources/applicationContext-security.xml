@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns="http://www.springframework.org/schema/security">
+  <http auto-config="true">
+    <intercept-url pattern="/api/rpc/users/**" access="ROLE_ADMIN"/>
+    <intercept-url pattern="/**" access="ROLE_USER"/>
+  </http>
+</beans:beans>
